@@ -14,6 +14,7 @@
 #endif
 
 #include <amxmodx>
+#include <amxconst>
 #include <fakemeta>
 #include <xs>
 

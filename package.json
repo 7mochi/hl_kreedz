@@ -1,0 +1,21 @@
+{
+  "name": "hl_kreedz",
+  "version": "1.0.0",
+  "scripts": {
+    "install-linux": "amxxpack install --config .amxxpack.linux.json",
+    "install-windows": "amxxpack install --config .amxxpack.windows.json",
+    "build-linux": "amxxpack build --config .amxxpack.linux.json && npm run post-build",
+    "build-linux-ag67": "amxxpack build --config .amxxpack.linux.json && npm run post-build-ag67",
+    "build-windows": "amxxpack build --config .amxxpack.windows.json && npm run post-build",
+    "build-windows-ag67": "amxxpack build --config .amxxpack.windows.json && npm run post-build-ag67",
+    "post-build": "cpy 'dist/ag/addons/amxmodx/configs/hamdata-vanilla.ini' '.' --rename=hamdata.ini && npm run remove-ham-configs",
+    "post-build-ag67": "cpy 'dist/ag/addons/amxmodx/configs/hamdata-ag67.ini' '.' --rename=hamdata.ini && npm run remove-ham-configs",
+    "remove-ham-configs": "rimraf dist/ag/addons/amxmodx/configs/hamdata-vanilla.ini dist/ag/addons/amxmodx/configs/hamdata-ag67.ini",
+    "clean": "rimraf .compiler .thirdparty dist"
+  },
+  "dependencies": {
+    "amxxpack": "^1.4.7",
+    "cpy-cli": "^5.0.0",
+    "rimraf": "^6.0.1"
+  }
+}
